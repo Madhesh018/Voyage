@@ -10,8 +10,8 @@ import {
   contactMessages,
   customPackageRequests
 } from "@shared/schema";
-import { drizzle } from "drizzle-orm/neon-http";
-import { neon } from "@neondatabase/serverless";
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
 import { eq } from "drizzle-orm";
 import { randomUUID } from "crypto";
 
@@ -32,7 +32,7 @@ export interface IStorage {
 }
 
 // Initialize database connection
-const sql = neon(process.env.DATABASE_URL!);
+const sql = postgres(process.env.DATABASE_URL!);
 const db = drizzle(sql);
 
 export class PostgresStorage implements IStorage {
