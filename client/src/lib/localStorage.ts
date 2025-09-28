@@ -117,6 +117,8 @@ export class LocalStorageService implements ILocalStorage {
       id: this.generateId(),
       ...insertRequest,
       children: insertRequest.children ?? 0,
+      startDate: insertRequest.startDate ?? null,
+      additionalDetails: insertRequest.additionalDetails ?? null,
       createdAt: new Date()
     };
     
