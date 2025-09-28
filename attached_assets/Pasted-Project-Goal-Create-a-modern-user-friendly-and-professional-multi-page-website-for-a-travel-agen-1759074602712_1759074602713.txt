@@ -1,0 +1,176 @@
+Project Goal:
+Create a modern, user-friendly, and professional multi-page website for a travel agency named Kv tours and travels. The website's primary goals are to showcase travel packages, tell the company's story, and generate customer leads through various contact methods.  
+
+i am going to download the files and will run it on the windows environment 
+
+1. Global Elements (Header & Footer)
+Header & Navigation Bar:
+Create a fixed (sticky) navigation bar at the top of the page with the following elements from left to right:
+
+Logo: "Kv tours and travels" (use a professional font or a logo image if available).
+
+Navigation Links:
+
+Home
+
+Packages
+
+About Us
+
+Contact Us
+
+Call-to-Action (CTA) Buttons:
+
+Enquiry Now: This should be a prominent, brightly colored button. When clicked, it must immediately initiate a phone call to the number [Your Primary Phone Number]. The link should be formatted as tel:[Your Primary Phone Number].
+
+Signup: A standard button.
+
+Login: A standard button.
+
+Footer:
+Create a simple footer to be present on all pages. It should contain:
+
+Quick Links (Home, Packages, About Us, Contact Us).
+
+Contact Information (Address, Phone, Email).
+
+Social Media Icons (Facebook, Instagram, Twitter - link to your pages).
+
+Copyright notice: © 2025 Kv tours and travels. All Rights Reserved.
+
+2. Page-Specific Instructions
+A. Home Page (home.html)
+Hero Section:
+
+Background: Use a full-screen, high-resolution background video that autoplays on a loop and is muted. The video should showcase beautiful and diverse travel scenes (e.g., mountains, beaches, cityscapes, cultural sites).
+
+Overlay Text: In the center of the video, display a large, elegant, and inspiring travel quote. Use a highly readable font. The quote should be: "To Travel is to Live".
+
+Gallery & Quotes Section:
+
+Below the hero section, create a grid of 4-6 high-quality, vibrant photographs of travel destinations.
+
+Under each picture, add a short, impactful travel quote.
+
+Example quotes: "Jobs fill your pockets, but adventures fill your soul.", "The world is too big to stay in one place.", "Travel far enough, you meet yourself."
+
+B. Packages Page (packages.html)
+Main Packages Section:
+
+Create a clean, card-based layout to display the 5 main tour packages.
+
+Each card should have:
+
+A high-quality image representing the destination.
+
+The package name (e.g., "Enchanting Tamil Nadu").
+
+A brief 1-2 line description.
+
+A "View Details" button.
+
+The 5 packages are:
+
+Tamil Nadu
+
+Kerala
+
+Karnataka
+
+Varanasi
+
+Mumbai
+
+when clicking this each package it should open a page where the tours details should be available with price , days , accomodation ect 
+
+Custom Package Section:
+
+Create a visually distinct section with a title like "Want a Different Destination? Create Your Own Package!".
+
+Include a button labeled "Plan My Custom Trip".
+
+When this button is clicked, a contact form should appear smoothly. The form should have the following fields:
+
+Full Name
+
+Email Address
+
+Phone Number
+
+Desired Destination(s)
+
+Number of Travelers (Adults & Children)
+
+Tentative Travel Dates
+
+Budget Estimate (e.g., dropdown with ranges)
+
+Additional Details or Special Requests (textarea)
+
+A "Submit Request" button.
+
+Direct Contact Section:
+
+At the bottom of the page, add a prominent section with:
+
+The contact number: [Your Primary Phone Number].
+
+A large button that says "Chat with us on WhatsApp". This button must link directly to your WhatsApp business account using the URL: https://wa.me/[YourWhatsAppNumber].
+
+C. About Us Page (aboutus.html)
+Our Story Section:
+
+Start with a heading like "Our 10+ Year Journey in Creating Memories".
+
+Write a paragraph about Kv tours and travels. Mention your mission to provide excellent service, create unforgettable experiences, and highlight your 10+ years of experience in the travel industry.
+
+Gallery Section:
+
+Create a beautiful photo gallery with the heading "Memories from Our Trips".
+
+This gallery should showcase real photos of happy customers, scenic views, and activities from previous tours. Make the images clickable to be viewed in a larger format (lightbox).
+
+D. Contact Us Page (contactus.html)
+Layout: Use a two-column layout for a clean and organized look.
+
+Left Column:
+
+Contact Form: A simple form for general inquiries.
+
+Fields: Name, Email, Phone Number, Subject, Your Message.
+
+A "Send Message" button.
+
+Direct Contact Details:
+
+Call Us: A section displaying the phone number [Your Primary Phone Number] that is clickable (tel: link).
+
+WhatsApp Us: A section with a button linking directly to your WhatsApp chat (https://wa.me/[YourWhatsAppNumber]).
+
+Right Column:
+
+Our Office:
+
+A heading: "Visit Our Office".
+
+An embedded Google Map showing the location of [Your Full Office Address]. The map should be interactive.
+
+Below the map, list the full office address and working hours.
+
+3. Placeholders to Fill In:
+[Your Primary Phone Number]
+
+[YourWhatsAppNumber] (e.g., 919876543210, including country code)
+
+[Your Full Office Address]
+
+[Your Email Address]
+
+Links to your social media pages (Facebook, Instagram, etc.).
+
+High-quality images for all packages and galleries.
+
+A background video for the home page.
+
+when clicking the signup button open a page for signup details to get from users same for login button
+
