@@ -5,8 +5,14 @@ import {
   type InsertContactMessage,
   type CustomPackageRequest,
   type InsertCustomPackageRequest,
-  type LoginCredentials
+  type LoginCredentials,
+  users,
+  contactMessages,
+  customPackageRequests
 } from "@shared/schema";
+import { drizzle } from "drizzle-orm/neon-http";
+import { neon } from "@neondatabase/serverless";
+import { eq } from "drizzle-orm";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
@@ -25,36 +31,24 @@ export interface IStorage {
   getCustomPackageRequests(): Promise<CustomPackageRequest[]>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-  private contactMessages: Map<string, ContactMessage>;
-  private customPackageRequests: Map<string, CustomPackageRequest>;
+// Initialize database connection
+const sql = neon(process.env.DATABASE_URL!);
+const db = drizzle(sql);
 
-  constructor() {
-    this.users = new Map();
-    this.contactMessages = new Map();
-    this.customPackageRequests = new Map();
-  }
-
+export class PostgresStorage implements IStorage {
   async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+    const result = await db.select().from(users).where(eq(users.id, id)).limit(1);
+    return result[0];
   }
 
   async getUserByEmail(email: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.email === email,
-    );
+    const result = await db.select().from(users).where(eq(users.email, email)).limit(1);
+    return result[0];
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { 
-      ...insertUser, 
-      id,
-      createdAt: new Date()
-    };
-    this.users.set(id, user);
-    return user;
+    const result = await db.insert(users).values(insertUser).returning();
+    return result[0];
   }
 
   async validateUser(credentials: LoginCredentials): Promise<User | null> {
@@ -66,35 +60,22 @@ export class MemStorage implements IStorage {
   }
 
   async createContactMessage(insertMessage: InsertContactMessage): Promise<ContactMessage> {
-    const id = randomUUID();
-    const message: ContactMessage = {
-      ...insertMessage,
-      id,
-      createdAt: new Date()
-    };
-    this.contactMessages.set(id, message);
-    return message;
+    const result = await db.insert(contactMessages).values(insertMessage).returning();
+    return result[0];
   }
 
   async getContactMessages(): Promise<ContactMessage[]> {
-    return Array.from(this.contactMessages.values());
+    return await db.select().from(contactMessages);
   }
 
   async createCustomPackageRequest(insertRequest: InsertCustomPackageRequest): Promise<CustomPackageRequest> {
-    const id = randomUUID();
-    const request: CustomPackageRequest = {
-      ...insertRequest,
-      id,
-      children: insertRequest.children ?? 0,
-      createdAt: new Date()
-    };
-    this.customPackageRequests.set(id, request);
-    return request;
+    const result = await db.insert(customPackageRequests).values(insertRequest).returning();
+    return result[0];
   }
 
   async getCustomPackageRequests(): Promise<CustomPackageRequest[]> {
-    return Array.from(this.customPackageRequests.values());
+    return await db.select().from(customPackageRequests);
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new PostgresStorage();
