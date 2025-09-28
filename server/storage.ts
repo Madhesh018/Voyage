@@ -85,6 +85,7 @@ export class MemStorage implements IStorage {
     const request: CustomPackageRequest = {
       ...insertRequest,
       id,
+      children: insertRequest.children ?? 0,
       createdAt: new Date()
     };
     this.customPackageRequests.set(id, request);
